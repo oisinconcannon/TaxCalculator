@@ -9,9 +9,9 @@ package ie.gmit;
 
 public class Person {
 
-    private String fName;
-    private String lName;
-    private int age;
+    public String fName;
+    public String lName;
+    public int age;
     private double salary;
 
     public Person() {
