@@ -21,4 +21,30 @@ public class BankLoan{
 
 
 
+    public BankLoan( int yearsOnLoan, double loanAmount) {
+
+        if(yearsOnLoan > 35 || yearsOnLoan < 5 )
+        {
+            throw new IllegalArgumentException("Invalid Mortgage Term, Maximum term is 35 years - Minimum term is 5 years .");
+        }
+
+       else if(loanAmount < 1)
+        {
+            throw new IllegalArgumentException("Invalid loan amount, Figure cannot be zero or negative.");
+
+        }
+
+        else
+        {
+
+            this.yearsOnLoan = yearsOnLoan;
+            this.loanAmount = loanAmount;
+
+        }
+
+    }
+
+
+
+
 }
