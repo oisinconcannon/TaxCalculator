@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
-Test set: ie.gmit.BankLoanTest
+Test set: ie.gmit.BusinessTaxTest
 -------------------------------------------------------------------------------
-Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.169 s - in ie.gmit.BankLoanTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.051 s - in ie.gmit.BusinessTaxTest
