@@ -1,4 +1,12 @@
 -------------------------------------------------------------------------------
 Test set: ie.gmit.BusinessTaxTest
 -------------------------------------------------------------------------------
+<<<<<<< HEAD
+<<<<<<<< HEAD:target/surefire-reports/ie.gmit.BusinessTaxTest.txt
 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.051 s - in ie.gmit.BusinessTaxTest
+========
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.11 s - in ie.gmit.BankLoanTest
+>>>>>>>> 87fc7265549c33321bb3eeaf1dc8b777651a5776:target/surefire-reports/ie.gmit.BankLoanTest.txt
+=======
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in ie.gmit.BusinessTaxTest
+>>>>>>> 87fc7265549c33321bb3eeaf1dc8b777651a5776
