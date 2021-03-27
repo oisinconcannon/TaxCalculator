@@ -11,7 +11,9 @@ public class BankLoanTest {
     @BeforeEach
     void setup()
     {
-        bankloan = new BankLoan();
+        BankLoan bankloan  = new BankLoan(20, 540000);
+
+
     }
 
 
@@ -35,6 +37,19 @@ public class BankLoanTest {
     {
         Exception e = assertThrows(IllegalArgumentException.class, ()->{new BankLoan(36,  540000);});
         assertEquals("Invalid Mortgage Term, Maximum term is 35 years - Minimum term is 5 years .", e.getMessage());
+    }
+
+    @Test
+    void testMortgageCalculator()
+    {
+        assertEquals(2967.87,  new BankLoan(20,540000).mortgageCalculator(600000));
+    }
+
+    @Test
+    void testMortgageCalculatorPurchasePrice()
+    {
+        Exception e = assertThrows(IllegalArgumentException.class, ()->{new BankLoan(25,  550000).mortgageCalculator(600000);});
+        assertEquals("Invalid Loan amount, Loan cannot exceed 90% of thee purchase price.", e.getMessage());
     }
 
 
