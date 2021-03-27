@@ -27,7 +27,7 @@ public class SalaryTax {
 
     public void setSalary(double salary)
     {
-        if(salary >= 17000)
+        if(salary >= 17000.00)
         {
             this.salary = salary;
         }
@@ -38,7 +38,7 @@ public class SalaryTax {
 
     }
 
-    public double IncomeTax()
+  /*  public double IncomeTax()
     {
         salary = getSalary();
         if(salary >=17000) {
@@ -46,14 +46,14 @@ public class SalaryTax {
                 upperIncomeTax = (salary - 35300) * .40;
                 incomeTax = (salary * .2) - 3300 + upperIncomeTax;
             } else {
-                incomeTax = (salary * .2) + 3300;
+                incomeTax = (salary * .2) - 3300;
             }
             return incomeTax;
         }
         else{
             throw new IllegalArgumentException("You have entered an ineligible value for salary(minimum 17,000),therefore cannot calculate income Tax");
         }
-    }
+    }*/
 
 
 

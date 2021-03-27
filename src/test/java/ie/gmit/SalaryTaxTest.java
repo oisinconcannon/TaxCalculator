@@ -15,6 +15,12 @@ public class SalaryTaxTest {
 
 
     @Test
+    void salaryTest(){
+        SalaryTax s = new SalaryTax(30000.00);
+        assertEquals(30000.00,s.getSalary());
+    }
+
+    /*@Test
     void incomeTaxTest(){
         SalaryTax s = new SalaryTax(30000);
         assertEquals(2700,s.IncomeTax());
@@ -23,6 +29,6 @@ public class SalaryTaxTest {
     void incomeTaxTestFail(){
         SalaryTax s = new SalaryTax(15000);
         assertThrows(IllegalArgumentException.class,() -> s.IncomeTax());
-    }
+    }*/
 
 }
