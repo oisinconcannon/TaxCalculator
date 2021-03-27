@@ -11,7 +11,7 @@ package ie.gmit;
 public class BankLoan{
 
     public int yearsOnLoan;
-    public double purchasePrice;
+   // public double purchasePrice;
     public double loanAmount;
     public double interestRate = 0.029/12;
 
@@ -45,6 +45,26 @@ public class BankLoan{
     }
 
 
+    public double mortgageCalculator(double purchasePrice)
+    {
+        if((purchasePrice*.9) < loanAmount)
+        {
+            throw new IllegalArgumentException("Invalid Loan amount, Loan cannot exceed 90% of thee purchase price.");
+        }
 
+        int totalPayments = yearsOnLoan*12;
+        double result;
 
+        result = (loanAmount)*(interestRate*Math.pow((1+interestRate), totalPayments))/(Math.pow((1+interestRate), totalPayments)-1);
+        result = Math.round(result * 100.0) / 100.0;
+
+        return result;
+
+    }
 }
+
+
+
+
+
+
