@@ -6,8 +6,6 @@ name: Java CI with Maven
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
 
 jobs:
   build:
@@ -24,11 +22,12 @@ jobs:
       with:
         java-version: 1.8
         
-    - name: Step 3 - Validate with Maven
-      run: mvn -B validate --file pom.xml
-      
-    - name: Step 4 - Compile with Maven
-      run: mvn -B compile --file pom.xml
-       
-    - name: Step 5 - Test with Maven
-      run: mvn -B test --file pom.xml
+    - name: Step 3 - Cache the Maven packages to speed up build
+      uses: actions/cache@v1
+      with:
+        path: ~/.m2
+        key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+        restore-keys: ${{ runner.os }}-m2      
+        
+    - name: Step 4 - Build with Test Maven Project
+      run: mvn -B package --file pom.xml
