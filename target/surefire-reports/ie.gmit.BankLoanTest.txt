@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: ie.gmit.BankLoanTest
--------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.052 s - in ie.gmit.BankLoanTest
