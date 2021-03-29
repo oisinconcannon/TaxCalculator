@@ -51,7 +51,7 @@ jobs:
         - name: Step 2 - Creating .JAR file
           run: |
                mvn -B package --file pom.xml -DskipTests
-               mkdir staging && cp target/*jar-with-dependencies.jar staging
+               mkdir staging && cp target/*.jar staging
         
         - name: Step 3 - Uploading Artifact
           uses: actions/upload-artifact@v1
