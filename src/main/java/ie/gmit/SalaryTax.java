@@ -12,6 +12,10 @@ public class SalaryTax {
     private String company;
     private int employmentNumber;
     private double salary;
+    private double incomeTax;
+    private double usc;
+    private double prsi;
+    private double grossSalary;
 
 
     public SalaryTax(String name, String company, int employmentNumber, double salary) {
@@ -79,10 +83,31 @@ public class SalaryTax {
     public void setSalary(double salary) {
         if (salary >= 17000) {
             this.salary = salary;
+            this.incomeTax = salary * 0.2;
+            this.usc = salary*0.045;
+            this.prsi = salary*0.04;
+            this.grossSalary= salary+3300-usc-incomeTax-prsi;
+
         } else {
             throw new IllegalArgumentException("Invalid Salary");
         }
 
+    }
+
+    public double getIncomeTax() {
+        return incomeTax;
+    }
+
+    public double getPrsi() {
+        return prsi;
+    }
+
+    public double getUsc() {
+        return usc;
+    }
+
+    public double getGrossSalary() {
+        return grossSalary;
     }
 }
 
