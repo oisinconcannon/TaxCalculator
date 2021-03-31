@@ -16,8 +16,6 @@ public class BankLoanTest {
 
     }
 
-
-
     @Test
     void testConstructorLoanAmountMessage()
     {
@@ -28,15 +26,15 @@ public class BankLoanTest {
     @Test
     void testConstructorLoanTermMessage1()
     {
-        Exception e = assertThrows(IllegalArgumentException.class, ()->{new BankLoan( 4,540000);});
-        assertEquals("Invalid Mortgage Term, Maximum term is 35 years - Minimum term is 5 years .", e.getMessage());
+        Exception e = assertThrows(IllegalArgumentException.class, ()->{new BankLoan( 0,540000);});
+        assertEquals("Invalid Loan Term, Maximum term is 35 years - Minimum term is 1 year.", e.getMessage());
     }
 
     @Test
     void testConstructorLoanTermMessage2()
     {
         Exception e = assertThrows(IllegalArgumentException.class, ()->{new BankLoan(36,  540000);});
-        assertEquals("Invalid Mortgage Term, Maximum term is 35 years - Minimum term is 5 years .", e.getMessage());
+        assertEquals("Invalid Loan Term, Maximum term is 35 years - Minimum term is 1 year.", e.getMessage());
     }
 
     @Test
@@ -46,10 +44,44 @@ public class BankLoanTest {
     }
 
     @Test
+    void testMortgageCalculatorTerm()
+    {
+        Exception e = assertThrows(IllegalArgumentException.class, ()->{new BankLoan(4,  500000).mortgageCalculator(600000);});
+        assertEquals("Invalid Mortgage Term, Maximum term is 35 years - Minimum term is 5 years.", e.getMessage());
+    }
+
+    @Test
     void testMortgageCalculatorPurchasePrice()
     {
         Exception e = assertThrows(IllegalArgumentException.class, ()->{new BankLoan(25,  550000).mortgageCalculator(600000);});
         assertEquals("Invalid Loan amount, Loan cannot exceed 90% of thee purchase price.", e.getMessage());
+    }
+
+    @Test
+    void testCarLoanTerm()
+    {
+        Exception e = assertThrows(IllegalArgumentException.class, ()->{new BankLoan(6,  55000).carLoanCalculator();});
+        assertEquals("Invalid Car loan term, Maximum term is 5 years - Minimum term is 1 year.", e.getMessage());
+    }
+
+    @Test
+    void testCarLoanCalculator()
+    {
+        assertEquals(886.81,  new BankLoan(5,45000).carLoanCalculator());
+    }
+
+    @Test
+    void testCarLoanCalculatorAmountHigh()
+    {
+        Exception e = assertThrows(IllegalArgumentException.class, ()->{new BankLoan(5,  65001).carLoanCalculator();});
+        assertEquals("Invalid loan amount, Minimum loan amount is 2000 and maximum is 65000", e.getMessage());
+    }
+
+    @Test
+    void testCarLoanCalculatorAmountLow()
+    {
+        Exception e = assertThrows(IllegalArgumentException.class, ()->{new BankLoan(5,  1999).carLoanCalculator();});
+        assertEquals("Invalid loan amount, Minimum loan amount is 2000 and maximum is 65000", e.getMessage());
     }
 
 

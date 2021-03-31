@@ -13,7 +13,8 @@ public class BankLoan{
     public int yearsOnLoan;
    // public double purchasePrice;
     public double loanAmount;
-    public double interestRate = 0.029/12;
+    public double mortgageInterestRate = 0.029/12;
+    public double carLoanInterestRate = 0.068/12;
 
     public BankLoan() {
 
@@ -23,9 +24,9 @@ public class BankLoan{
 
     public BankLoan( int yearsOnLoan, double loanAmount) {
 
-        if(yearsOnLoan > 35 || yearsOnLoan < 5 )
+        if(yearsOnLoan > 35 || yearsOnLoan < 1 )
         {
-            throw new IllegalArgumentException("Invalid Mortgage Term, Maximum term is 35 years - Minimum term is 5 years .");
+            throw new IllegalArgumentException("Invalid Loan Term, Maximum term is 35 years - Minimum term is 1 year.");
         }
 
        else if(loanAmount < 1)
@@ -47,6 +48,11 @@ public class BankLoan{
 
     public double mortgageCalculator(double purchasePrice)
     {
+        if(yearsOnLoan > 35 || yearsOnLoan < 5 )
+        {
+            throw new IllegalArgumentException("Invalid Mortgage Term, Maximum term is 35 years - Minimum term is 5 years.");
+        } //need to test
+
         if((purchasePrice*.9) < loanAmount)
         {
             throw new IllegalArgumentException("Invalid Loan amount, Loan cannot exceed 90% of thee purchase price.");
@@ -55,7 +61,29 @@ public class BankLoan{
         int totalPayments = yearsOnLoan*12;
         double result;
 
-        result = (loanAmount)*(interestRate*Math.pow((1+interestRate), totalPayments))/(Math.pow((1+interestRate), totalPayments)-1);
+        result = (loanAmount)*(mortgageInterestRate*Math.pow((1+mortgageInterestRate), totalPayments))/(Math.pow((1+mortgageInterestRate), totalPayments)-1);
+        result = Math.round(result * 100.0) / 100.0;
+
+        return result;
+
+    }
+
+    public double carLoanCalculator()
+    {
+        if(loanAmount > 65000 || loanAmount < 2000)
+        {
+            throw new IllegalArgumentException("Invalid loan amount, Minimum loan amount is 2000 and maximum is 65000");
+        }
+
+        if(yearsOnLoan > 5 || yearsOnLoan < 1 )
+        {
+            throw new IllegalArgumentException("Invalid Car loan term, Maximum term is 5 years - Minimum term is 1 year.");
+        } //need to test
+
+        int totalPayments = yearsOnLoan*12;
+        double result;
+
+        result = (loanAmount)*(carLoanInterestRate*Math.pow((1+carLoanInterestRate), totalPayments))/(Math.pow((1+carLoanInterestRate), totalPayments)-1);
         result = Math.round(result * 100.0) / 100.0;
 
         return result;
