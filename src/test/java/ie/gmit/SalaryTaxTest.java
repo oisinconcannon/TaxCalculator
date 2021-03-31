@@ -29,5 +29,23 @@ public class SalaryTaxTest {
         assertEquals("Invalid Salary", e.getMessage());
 
     }
+    @Test
+    void uscTest()
+    {
+        SalaryTax s = new SalaryTax("oisin","gmit",1234,30000);
+        assertEquals(1350,s.getUsc());
+    }
+    @Test
+    void incomeTaxTest()
+    {
+        SalaryTax s = new SalaryTax("oisin","gmit",1234,30000);
+        assertEquals(6000,s.getIncomeTax());
+    }
+    @Test
+    void prsiTest()
+    {
+        SalaryTax s = new SalaryTax("oisin","gmit",1234,30000);
+        assertEquals(1200,s.getPrsi());
+    }
 
 }
