@@ -12,5 +12,7 @@ public class TaxMan {
         System.out.println(s.getPrsi());
         System.out.println(s.getUsc());
         System.out.println(s.getGrossSalary());
+        //tesiting
+        // testing new branch latif
     }
 }
