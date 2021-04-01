@@ -13,8 +13,8 @@ jobs:
   Build:
       runs-on: ubuntu-latest
       steps:
-      - name: Step 1 - Checkout main branch from GitHub
-        uses: actions/checkout@v2
+      - name: Step 1 - Checkout development from GitHub
+        uses: actions/checkout@development
 
 
       - name: Step 2 - Set up JDK 1.8
@@ -44,8 +44,8 @@ jobs:
     needs: [Build]
 
     steps:
-    - name: Step 1 - Checkout main branch from GitHub
-      uses: actions/checkout@v2
+    - name: Step 1 - Checkout development branch from GitHub
+      uses: actions/checkout@development
       
       
     - name: Step 2 - Set up JDK 1.8
