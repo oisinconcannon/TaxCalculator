@@ -6,8 +6,6 @@
 name: TaxCalculator-CI/CD
 
 on:
-  push:
-    branches: [ master ]
   pull_request:
     branches: [ master ]
 
