@@ -19,4 +19,11 @@ public class BusinessTaxTest
         Exception e = assertThrows(IllegalArgumentException.class, () -> new BusinessTax(-6262.14,2626242));
         assertEquals("Operating Expense cannot be negative", e.getMessage());
     }
+
+    @Test
+    void operatingExpensePass()
+    {
+        BusinessTax e = new BusinessTax(20000,30000);
+        assertEquals(20000, e.getOperatingExpense());
+    }
 }
