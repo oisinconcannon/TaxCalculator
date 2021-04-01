@@ -26,4 +26,11 @@ public class BusinessTaxTest
         BusinessTax e = new BusinessTax(20000,30000);
         assertEquals(20000, e.getOperatingExpense());
     }
+
+    @Test
+    void operatingExpensePass2()
+    {
+        BusinessTax e = new BusinessTax(30000,30000);
+        assertEquals(30000, e.getOperatingExpense());
+    }
 }
