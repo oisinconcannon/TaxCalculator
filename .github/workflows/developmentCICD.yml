@@ -7,7 +7,7 @@ name: development-CI/CD
 
 on:
   push:
-    branches: [ development ]
+    branches: [ development-branch]
 
 jobs:
   Build:
