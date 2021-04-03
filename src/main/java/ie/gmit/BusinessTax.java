@@ -40,5 +40,4 @@ public class BusinessTax {
     {
         this.revenue = revenue;
     }
-
 }
