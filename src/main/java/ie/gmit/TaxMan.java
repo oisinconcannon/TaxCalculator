@@ -20,6 +20,24 @@ public class TaxMan {
             switch(selection)
             {
                 case 1 :
+                    SalaryTax salaryTax = new SalaryTax("abcd","abcd",123,20000);
+                    System.out.println("Please enter your name");
+                    salaryTax.setName(scanner.next());
+                    System.out.println("Please enter your Company");
+                    salaryTax.setCompany(scanner.next());
+                    System.out.println("Please enter your Employment ID");
+                    salaryTax.setEmploymentNumber(scanner.nextInt());
+                    System.out.println("Please enter your Salary");
+                    salaryTax.setSalary(scanner.nextDouble());
+                    System.out.println("Income Tax: "+ salaryTax.getIncomeTax());
+                    System.out.println("Higher rate income Tax: "+ salaryTax.getUpperIncomeTax());
+                    System.out.println("PRSI Tax: "+ salaryTax.getPrsi());
+                    System.out.println("USC Tax: "+ salaryTax.getUsc());
+                    System.out.println("Gross Salary: "+ salaryTax.getGrossSalary());
+                    System.out.println("Do you want to continue? Type Yes / No");
+                    Scanner scanner2 = new Scanner(System.in);
+                    if (scanner2.next().equalsIgnoreCase("no"))
+                        exit = true;
                     break;
 
                 case 2:
