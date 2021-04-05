@@ -11,7 +11,7 @@ package ie.gmit;
 public class BankLoan{
 
     public int yearsOnLoan;
-   // public double purchasePrice;
+    //public double purchasePrice;
     public double loanAmount;
     public double mortgageInterestRate = 0.029/12;
     public double carLoanInterestRate = 0.068/12;
@@ -29,9 +29,9 @@ public class BankLoan{
             throw new IllegalArgumentException("Invalid Loan Term, Maximum term is 35 years - Minimum term is 1 year.");
         }
 
-       else if(loanAmount < 1)
+       else if(loanAmount < 2000)
         {
-            throw new IllegalArgumentException("Invalid loan amount, Figure cannot be zero or negative.");
+            throw new IllegalArgumentException("Invalid loan amount, Figure cannot be lower than 2000");
 
         }
 
@@ -87,6 +87,40 @@ public class BankLoan{
         result = Math.round(result * 100.0) / 100.0;
 
         return result;
+
+    }
+
+    public int getYearsOnLoan() {
+        return yearsOnLoan;
+    }
+
+    public void setYearsOnLoan(int yearsOnLoan) {
+        if(yearsOnLoan < 2 || yearsOnLoan > 35)
+        {
+            throw new IllegalArgumentException("Invalid Loan Term, Maximum term is 35 years - Minimum term is 1 year.");
+        }
+        else
+        {
+            this.yearsOnLoan = yearsOnLoan;
+        }
+
+    }
+
+    public double getLoanAmount() {
+        return loanAmount;
+    }
+
+    public void setLoanAmount(double loanAmount) {
+
+        if(loanAmount < 2000)
+        {
+            throw new IllegalArgumentException("Invalid loan amount, Figure cannot be lower than 2000");
+
+        }
+        else
+        {
+            this.loanAmount = loanAmount;
+        }
 
     }
 }
