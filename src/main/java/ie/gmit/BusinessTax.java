@@ -2,7 +2,6 @@ package ie.gmit;
 
 public class BusinessTax {
 
-
     double operatingExpense;
     double revenue;
     double salariesPaid;
@@ -193,7 +192,7 @@ public class BusinessTax {
         }
         else
         {
-            throw new IllegalArgumentException("Gross sales fess cannot be negative");
+            throw new IllegalArgumentException("Gross sales cannot be negative");
         }
     }
 
@@ -210,7 +209,7 @@ public class BusinessTax {
         }
         else
         {
-            throw new IllegalArgumentException("Gross services fess cannot be negative");
+            throw new IllegalArgumentException("Gross services cannot be negative");
         }
     }
 
