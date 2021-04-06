@@ -20,13 +20,19 @@ public class TaxMan {
             switch(selection)
             {
                 case 1 :
-                    SalaryTax salaryTax = new SalaryTax("abcd","abcd",123,20000);
-                    System.out.println("Please enter your name");
-                    salaryTax.setName(scanner.next());
+                    SalaryTax salaryTax = new SalaryTax("abcd","abcd","abcd","abcd",123,22,20000);
+                    System.out.println("Please enter your first name");
+                    salaryTax.setFirstName(scanner.next());
+                    System.out.println("Please enter your last name");
+                    salaryTax.setLastName(scanner.next());
                     System.out.println("Please enter your Company");
                     salaryTax.setCompany(scanner.next());
+                    System.out.println("Please enter your Department");
+                    salaryTax.setDepartment(scanner.next());
                     System.out.println("Please enter your Employment ID");
                     salaryTax.setEmploymentNumber(scanner.nextInt());
+                    System.out.println("Please enter your Age");
+                    salaryTax.setAge(scanner.nextInt());
                     System.out.println("Please enter your Salary");
                     salaryTax.setSalary(scanner.nextDouble());
                     System.out.println("Income Tax: "+ salaryTax.getIncomeTax());
