@@ -111,6 +111,55 @@ public class TaxMan {
                     break;
 
                 case 3 :
+                    int option;
+                    BankLoan bankLoan = new BankLoan();
+                    System.out.println("Welcome to the Bank Loan Calculator");
+                    System.out.println("Please enter your first name:");
+                    bankLoan.setfName(scanner.next());
+                    System.out.println("Please enter your last name:");
+                    bankLoan.setlName(scanner.next());
+                    System.out.println("Press 1 to calculate Mortgage repayments, Press 2 for car loan repayments.");
+                    option = scanner.nextInt();
+                    if(option ==1)
+                    {
+                        double monthlyRepayments;
+                        System.out.println("Mortgage calculator selected!");
+                        System.out.println("Please enter the value of the mortgage you require:");
+                        bankLoan.setLoanAmount(scanner.nextDouble());
+                        System.out.println("Please enter the Loan Term (in years):");
+                        bankLoan.setYearsOnLoan(scanner.nextInt());
+                        System.out.println("Please enter The purchase Price of the Property:");
+                        monthlyRepayments =  bankLoan.mortgageCalculator(scanner.nextDouble());
+                        System.out.println(bankLoan.getfName() + " " + bankLoan.getlName() +
+                                " Your Monthly repayments for a mortgage of " + bankLoan.getLoanAmount() +
+                                " over " + bankLoan.getYearsOnLoan() + " Years is : €" + monthlyRepayments);
+                        System.out.println("Do you want to continue? Type Yes / No");
+                        if (scanner.next().equalsIgnoreCase("no"))
+                            exit = true;
+
+
+                    }
+                    else if(option == 2)
+                    {
+                        double monthlyRepayments;
+                        System.out.println("Car Loan calculator selected!");
+                        System.out.println("Please enter the value of the Car Loan you require:");
+                        bankLoan.setLoanAmount(scanner.nextDouble());
+                        System.out.println("Please enter the Loan Term (in years):");
+                        bankLoan.setYearsOnLoan(scanner.nextInt());
+                        monthlyRepayments = bankLoan.carLoanCalculator();
+                        System.out.println(bankLoan.getfName() + " " + bankLoan.getlName() +
+                                " Your Monthly repayments for a Car Loan of " + bankLoan.getLoanAmount() +
+                                " over " + bankLoan.getYearsOnLoan() + " Years is : €" + monthlyRepayments);
+                        System.out.println("Do you want to continue? Type Yes / No");
+                        if (scanner.next().equalsIgnoreCase("no"))
+                            exit = true;
+                    }
+                    else
+                    {
+                        System.out.println("Invalid Option, You will be redirected to the Main Menu.");
+
+                    }
                     break;
             }
         }
