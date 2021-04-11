@@ -22,20 +22,20 @@ jobs:
         with:
           java-version: 1.8
           
-      - name: Step 4 - Cache the Maven packages to speed up build
+      - name: Step 3 - Cache the Maven packages to speed up build
         uses: actions/cache@v1
         with:
           path: ~/.m2
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-m2      
           
-      - name: Step 3 - Clean Maven TaxCalculator Project
+      - name: Step 4 - Clean Maven TaxCalculator Project
         run: mvn -B clean --file pom.xml
         
-      - name: Step 4 - Validate Maven TaxCalculator Project
+      - name: Step 5 - Validate Maven TaxCalculator Project
         run: mvn -B validate --file pom.xml
           
-      - name: Step 4 - Compile Maven TaxCalculator Project
+      - name: Step 6 - Compile Maven TaxCalculator Project
         run: mvn -B compile --file pom.xml
           
           
@@ -63,5 +63,39 @@ jobs:
     - name: Step 4 - Test Maven TaxCalculator Project
       run: mvn -B test --file pom.xml
       
+  Deploy:
+    runs-on: ubuntu-latest
+    needs: [Test]
 
+    steps:
+    - name: Step 1 - Checkout main branch from GitHub
+      uses: actions/checkout@v2
+      
+      
+    - name: Step 2 - Set up JDK 1.8
+      uses: actions/setup-java@v1
+      with:
+        java-version: 1.8
+        
+    - name: Step 3 - Cache the Maven packages to speed up build
+      uses: actions/cache@v1
+      with:
+        path: ~/.m2
+        key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+        restore-keys: ${{ runner.os }}-m2      
+        
+    - name: Step 4 - Packaging Maven Project
+      run: mvn -B package --file pom.xml
+           
+    - name: Step 5 - Generating Jacoco Report 
+      run: |
+           mvn -B package --file pom.xml -DskipTests
+           mkdir report && cp target/site/jacoco/index.html report
+
+        
+    - name: Step 6 - Uploading Jacoco Report
+      uses: actions/upload-artifact@v1
+      with:
+        name: Jacoco Report
+        path: report
 
