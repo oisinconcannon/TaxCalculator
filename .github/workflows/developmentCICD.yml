@@ -63,7 +63,7 @@ jobs:
     - name: Step 4 - Test Maven TaxCalculator Project
       run: mvn -B test --file pom.xml
       
-  Generating Report:
+  Generating_Report:
     runs-on: ubuntu-latest
     needs: [Test]
 
