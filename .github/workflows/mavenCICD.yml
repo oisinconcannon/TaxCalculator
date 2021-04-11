@@ -35,7 +35,7 @@ jobs:
       - name: Step 4 - Validate Maven TaxCalculator Project
         run: mvn -B validate --file pom.xml
           
-      - name: Step 4 - Compile Maven TaxCalculator Project
+      - name: Step 5 - Compile Maven TaxCalculator Project
         run: mvn -B compile --file pom.xml
           
           
@@ -97,13 +97,13 @@ jobs:
     - name: Step 6 - Uploading .JAR Artifact
       uses: actions/upload-artifact@v1
       with:
-        name: Package
+        name: JAR Artifact
         path: staging
         
     - name: Step 7 - Generating Jacoco Report
       uses: actions/upload-artifact@v1
       with:
-        name: Package
+        name: Jacoco Report
         path: report
 
   Release:
