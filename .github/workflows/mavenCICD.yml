@@ -92,12 +92,19 @@ jobs:
       run: |
            mvn -B package --file pom.xml -DskipTests
            mkdir staging && cp target/*.jar staging
+           mkdir report && cp target/site/jacoco/index.html report
 
-    - name: Step 3 - Uploading Artifact
+    - name: Step 6 - Uploading .JAR Artifact
       uses: actions/upload-artifact@v1
       with:
         name: Package
         path: staging
+        
+    - name: Step 7 - Generating Jacoco Report
+      uses: actions/upload-artifact@v1
+      with:
+        name: Package
+        path: report
 
   Release:
         runs-on: ubuntu-latest
