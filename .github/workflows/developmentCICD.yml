@@ -90,7 +90,7 @@ jobs:
     - name: Step 5 - Generating Jacoco Report 
       run: |
            mvn -B package --file pom.xml -DskipTests
-           mkdir report && cp target/site/* report
+           mkdir report && cp -r target/site/* report
 
         
     - name: Step 6 - Uploading Jacoco Report
