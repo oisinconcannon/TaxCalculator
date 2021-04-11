@@ -8,9 +8,12 @@ package ie.gmit;
 
 public class SalaryTax {
 
-    private String name;
+    private String firstName;
+    private String lastName;
     private String company;
+    private String department;
     private int employmentNumber;
+    private int age;
     private double salary;
     private double incomeTax;
     private double upperIncomeTax;
@@ -19,26 +22,45 @@ public class SalaryTax {
     private double grossSalary;
 
 
-    public SalaryTax(String name, String company, int employmentNumber, double salary) {
-        setName(name);
+    public SalaryTax(String firstName, String lastName,String company,String department, int employmentNumber,int age, double salary) {
+        setFirstName(firstName);
+        setLastName(lastName);
         setCompany(company);
+        setDepartment(department);
         setEmploymentNumber(employmentNumber);
+        setAge(age);
         setSalary(salary);
     }
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        if (name.length() > 2) {
-            if (name.length() < 25) {
-                this.name = name;
+    public void setFirstName(String firstName) {
+        if (firstName.length() > 2) {
+            if (firstName.length() < 25) {
+                this.firstName = firstName;
             } else {
-                throw new IllegalArgumentException("Name too long");
+                throw new IllegalArgumentException("First Name too long");
             }
         } else {
-            throw new IllegalArgumentException("Name too short");
+            throw new IllegalArgumentException("First Name too short");
+        }
+
+    }
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        if (lastName.length() > 2) {
+            if (lastName.length() < 25) {
+                this.lastName = lastName;
+            } else {
+                throw new IllegalArgumentException("Last Name too long");
+            }
+        } else {
+            throw new IllegalArgumentException("Last Name too short");
         }
 
     }
@@ -60,6 +82,23 @@ public class SalaryTax {
 
     }
 
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
+        if (department.length() > 2) {
+            if (department.length() < 10) {
+                this.department = department;
+            } else {
+                throw new IllegalArgumentException("Department too long");
+            }
+        } else {
+            throw new IllegalArgumentException("Department too short");
+        }
+
+    }
+
     public double getEmploymentNumber() {
         return employmentNumber;
     }
@@ -73,6 +112,22 @@ public class SalaryTax {
             }
         } else {
             throw new IllegalArgumentException("Employment ID too short");
+        }
+
+    }
+    public double getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        if (age >=18) {
+            if (age <=65) {
+                this.age = age;
+            } else {
+                throw new IllegalArgumentException("Age too high");
+            }
+        } else {
+            throw new IllegalArgumentException("Age too low");
         }
 
     }
