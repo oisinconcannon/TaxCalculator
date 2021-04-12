@@ -83,7 +83,7 @@ public class TaxManTest {
     void bankLoanSelectionPass2()
     {
         TaxMan e = new TaxMan(1,"no",2);
-        assertEquals(2, e.getSelection());
+        assertEquals(2, e.getBankLoanSelection());
     }
 
 }
