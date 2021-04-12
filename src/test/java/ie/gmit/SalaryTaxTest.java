@@ -1,8 +1,8 @@
 /*
-Oisin Concannon
-G00347603@gmit.ie
-This feature will calculate personal tax for an individual
- Software and Electronic Engineering 2021
+Name: Oisin Concannon
+Email: G00347603@gmit.ie
+This test class will run tests to validate the data being entered into SalaryTax class.
+Both failure and pass are being tested for.
  */
 
 package ie.gmit;

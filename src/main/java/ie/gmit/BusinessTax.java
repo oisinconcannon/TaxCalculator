@@ -1,3 +1,10 @@
+/*
+Name: Latif Yahia
+Email: G00348688@gmit.ie
+Project: TaxCalculator
+This class will calculate business tax for businesses
+ */
+
 package ie.gmit;
 
 public class BusinessTax {

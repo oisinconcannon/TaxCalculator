@@ -1,3 +1,11 @@
+/*
+Name: Latif Yahia
+Email: G00348688@gmit.ie
+Project: TaxCalculator
+This test class will run tests to validate the data being entered into BusinessTax class.
+Both failure and pass are being tested for.
+ */
+
 package ie.gmit;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -172,5 +180,13 @@ public class BusinessTaxTest
         BusinessTax e = new BusinessTax(0,0,0,0,0,0,0
                 ,0,0,0,5000);
         assertEquals(5000, e.getGrossServices());
+    }
+
+    @Test
+    void revenuePass()
+    {
+        BusinessTax e = new BusinessTax(0,5000,0,0,0,0,0
+                ,0,0,0,0);
+        assertEquals(5000, e.getRevenue());
     }
 }
