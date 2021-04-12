@@ -1,12 +1,15 @@
 /*
-Oisin Concannon
-G00347603@gmit.ie
-This feature will calculate personal tax for an individual
- Software and Electronic Engineering 2021
+Name: Oisin Concannon
+Email: G00347603@gmit.ie
+Project: TaxCalculator
+This class will calculate personal tax for an individual
+Software and Electronic Engineering 2021
  */
+
 package ie.gmit;
 
-public class SalaryTax {
+public class SalaryTax
+{
 
     private String firstName;
     private String lastName;
@@ -22,7 +25,9 @@ public class SalaryTax {
     private double grossSalary;
 
 
-    public SalaryTax(String firstName, String lastName,String company,String department, int employmentNumber,int age, double salary) {
+    public SalaryTax(String firstName, String lastName,String company,String department,
+                     int employmentNumber,int age, double salary)
+    {
         setFirstName(firstName);
         setLastName(lastName);
         setCompany(company);
@@ -32,113 +37,169 @@ public class SalaryTax {
         setSalary(salary);
     }
 
-    public String getFirstName() {
+    public String getFirstName()
+    {
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
-        if (firstName.length() > 2) {
-            if (firstName.length() < 25) {
+    public void setFirstName(String firstName)
+    {
+        if (firstName.length() > 2)
+        {
+            if (firstName.length() < 25)
+            {
                 this.firstName = firstName;
-            } else {
+            }
+
+            else
+            {
                 throw new IllegalArgumentException("First Name too long");
             }
-        } else {
+        }
+        else
+        {
             throw new IllegalArgumentException("First Name too short");
         }
-
     }
-    public String getLastName() {
+
+    public String getLastName()
+    {
         return lastName;
     }
 
     public void setLastName(String lastName) {
-        if (lastName.length() > 2) {
-            if (lastName.length() < 25) {
+        if (lastName.length() > 2)
+        {
+            if (lastName.length() < 25)
+            {
                 this.lastName = lastName;
-            } else {
+            }
+
+            else
+            {
                 throw new IllegalArgumentException("Last Name too long");
             }
-        } else {
+        }
+
+        else
+        {
             throw new IllegalArgumentException("Last Name too short");
         }
 
     }
 
-    public String getCompany() {
+    public String getCompany()
+    {
         return company;
     }
 
-    public void setCompany(String company) {
-        if (company.length() > 2) {
-            if (company.length() < 15) {
+    public void setCompany(String company)
+    {
+        if (company.length() > 2)
+        {
+            if (company.length() < 15)
+            {
                 this.company = company;
-            } else {
+            }
+
+            else
+            {
                 throw new IllegalArgumentException("Company name too long");
             }
-        } else {
+        }
+        else
+        {
             throw new IllegalArgumentException("Company name too short");
         }
-
     }
 
-    public String getDepartment() {
+    public String getDepartment()
+    {
         return department;
     }
 
-    public void setDepartment(String department) {
-        if (department.length() > 2) {
-            if (department.length() < 10) {
+    public void setDepartment(String department)
+    {
+        if (department.length() > 2)
+        {
+            if (department.length() < 10)
+            {
                 this.department = department;
-            } else {
+            }
+
+            else
+            {
                 throw new IllegalArgumentException("Department too long");
             }
-        } else {
+        }
+        else
+        {
             throw new IllegalArgumentException("Department too short");
         }
-
     }
 
-    public double getEmploymentNumber() {
+    public double getEmploymentNumber()
+    {
         return employmentNumber;
     }
 
-    public void setEmploymentNumber(int employmentNumber) {
-        if (String.valueOf(employmentNumber).length() > 2) {
-            if (String.valueOf(employmentNumber).length() < 10) {
+    public void setEmploymentNumber(int employmentNumber)
+    {
+        if (String.valueOf(employmentNumber).length() > 2)
+        {
+            if (String.valueOf(employmentNumber).length() < 10)
+            {
                 this.employmentNumber = employmentNumber;
-            } else {
+            }
+
+            else
+            {
                 throw new IllegalArgumentException("Employment ID too long");
             }
-        } else {
-            throw new IllegalArgumentException("Employment ID too short");
         }
 
+        else
+        {
+            throw new IllegalArgumentException("Employment ID too short");
+        }
     }
-    public double getAge() {
+
+    public double getAge()
+    {
         return age;
     }
 
-    public void setAge(int age) {
-        if (age >=18) {
-            if (age <=65) {
+    public void setAge(int age)
+    {
+        if (age >=18)
+        {
+            if (age <=65)
+            {
                 this.age = age;
-            } else {
+            }
+            else
+            {
                 throw new IllegalArgumentException("Age too high");
             }
-        } else {
-            throw new IllegalArgumentException("Age too low");
         }
 
+        else
+        {
+            throw new IllegalArgumentException("Age too low");
+        }
     }
 
-    public double getSalary() {
+    public double getSalary()
+    {
         return salary;
     }
 
-    public void setSalary(double salary) {
-        if (salary >= 17000) {
-            if(salary >35300){
+    public void setSalary(double salary)
+    {
+        if (salary >= 17000)
+        {
+            if(salary >35300)
+            {
                 this.salary = salary;
                 this.incomeTax = 35300 * 0.2;
                 this.upperIncomeTax = (salary-35300) *0.4;
@@ -151,30 +212,36 @@ public class SalaryTax {
             this.usc = salary*0.045;
             this.prsi = salary*0.04;
             this.grossSalary= salary+3300-usc-incomeTax-prsi;
-
-        } else {
-            throw new IllegalArgumentException("Invalid Salary");
         }
 
+        else
+        {
+            throw new IllegalArgumentException("Invalid Salary");
+        }
     }
 
-    public double getIncomeTax() {
+    public double getIncomeTax()
+    {
         return incomeTax;
     }
 
-    public double getUpperIncomeTax() {
+    public double getUpperIncomeTax()
+    {
         return upperIncomeTax;
     }
 
-    public double getPrsi() {
+    public double getPrsi()
+    {
         return prsi;
     }
 
-    public double getUsc() {
+    public double getUsc()
+    {
         return usc;
     }
 
-    public double getGrossSalary() {
+    public double getGrossSalary()
+    {
         return grossSalary;
     }
 }

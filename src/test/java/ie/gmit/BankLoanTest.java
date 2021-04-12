@@ -1,3 +1,11 @@
+/*
+Name: Brian Sharkey
+Email: G00301661@gmit.ie
+Project: TaxCalculator
+This test class will run tests to validate the data being entered into BankLoan class.
+Both failure and pass are being tested for.
+ */
+
 package ie.gmit;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -6,14 +14,13 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class BankLoanTest {
+public class BankLoanTest
+{
 
     @BeforeEach
     void setup()
     {
         BankLoan bankloan  = new BankLoan("Brian", "Sharkey",20, 540000);
-
-
     }
 
     @Test
@@ -87,13 +94,15 @@ public class BankLoanTest {
     {
         assertEquals(5,  new BankLoan("Brian", "Sharkey",5,45000).getYearsOnLoan());
     }
-@Test
-   void testYearsOnLoanSetter1()
+
+    @Test
+    void testYearsOnLoanSetter1()
     {
         Exception e = assertThrows(IllegalArgumentException.class, ()->{new BankLoan().setYearsOnLoan(36);});
         assertEquals("Invalid Loan Term, Maximum term is 35 years - Minimum term is 1 year.", e.getMessage());
     }
- @Test
+
+    @Test
     void testYearsOnLoanSetter2()
     {
         Exception e = assertThrows(IllegalArgumentException.class, ()->{new BankLoan().setYearsOnLoan(0);});
@@ -115,6 +124,7 @@ public class BankLoanTest {
         Exception e = assertThrows(IllegalArgumentException.class, ()->{new BankLoan().setLoanAmount(1999);});
         assertEquals("Invalid loan amount, Figure cannot be lower than 2000", e.getMessage());
     }
+
     @Test
     void testLoanAmountSetter2()
     {
