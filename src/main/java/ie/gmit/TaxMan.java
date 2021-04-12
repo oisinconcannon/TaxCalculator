@@ -4,10 +4,12 @@ import java.util.Scanner;
 
 public class TaxMan {
 
+    int selection;
     public static void main(String[] args)
     {
+        TaxMan t1 = new TaxMan(1);
+        int selectionCase;
         Scanner scanner = new Scanner(System.in);  // Create a Scanner object
-        int selection;
         boolean exit = false;
         System.out.println("Welcome to your tax calculator\n");
         while(!exit)
@@ -16,8 +18,9 @@ public class TaxMan {
             System.out.println("Select 1 For Salary Tax Calculation");
             System.out.println("Select 2 For Business Tax Calculation");
             System.out.println("Select 3 For Loan Calculator");
-            selection = scanner.nextInt();
-            switch(selection)
+            selectionCase = scanner.nextInt();
+            t1.setSelection(selectionCase);
+            switch(selectionCase)
             {
                 case 1 :
                     SalaryTax salaryTax = new SalaryTax("abcd","abcd","abcd","abcd",123,22,20000);
@@ -162,6 +165,27 @@ public class TaxMan {
                     }
                     break;
             }
+        }
+
+    }
+    public TaxMan(int selection)
+    {
+        setSelection(selection);
+    }
+    public int getSelection()
+    {
+        return selection;
+    }
+
+    public void setSelection(int selection)
+    {
+        if(selection == 1 || selection == 2 || selection == 3)
+        {
+            this.selection = selection;
+        }
+        else
+        {
+            throw new IllegalArgumentException("Invalid Selection, please select a value between 1 - 3");
         }
     }
 }
