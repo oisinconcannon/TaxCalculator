@@ -20,7 +20,7 @@ public class TaxMan
     int selection;
     String endAnswer;
 
-    //demo of the pipeline
+    //demo of the pipeline 1
 
     public static void main(String[] args)
     {
