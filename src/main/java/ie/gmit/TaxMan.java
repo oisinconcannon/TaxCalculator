@@ -20,6 +20,8 @@ public class TaxMan
     int selection;
     String endAnswer;
 
+    //demo of the pipeline
+
     public static void main(String[] args)
     {
         TaxMan t1 = new TaxMan(1,"no", 1);
